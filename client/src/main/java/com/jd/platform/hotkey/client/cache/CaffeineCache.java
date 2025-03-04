@@ -12,7 +12,7 @@ public class CaffeineCache implements LocalCache {
 
     private Cache<String, Object> cache;
 
-    public CaffeineCache(int duration) {
+    public CaffeineCache(int duration) { /* 相同过期时间的key规则，公用一个Caffeine缓存 */
         this.cache = CaffeineBuilder.cache(duration);
     }
 

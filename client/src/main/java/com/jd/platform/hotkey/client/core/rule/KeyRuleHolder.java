@@ -25,7 +25,7 @@ public class KeyRuleHolder {
     /**
      * 保存超时时间和caffeine的映射，key是超时时间，value是caffeine
      */
-    private static final ConcurrentHashMap<Integer, LocalCache> RULE_CACHE_MAP = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Integer, LocalCache> RULE_CACHE_MAP = new ConcurrentHashMap<>();/* 本地缓存 */
 
     private static final List<KeyRule> KEY_RULES = new ArrayList<>();
 

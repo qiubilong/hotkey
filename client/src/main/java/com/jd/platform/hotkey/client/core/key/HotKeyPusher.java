@@ -52,7 +52,7 @@ public class HotKeyPusher {
             //如果key是规则内的要被探测的key，就积累等待传送
             if (KeyRuleHolder.isKeyInRule(key)) {
                 //积攒起来，等待每半秒发送一次
-                KeyHandlerFactory.getCollector().collect(hotKeyModel);
+                KeyHandlerFactory.getCollector().collect(hotKeyModel);/* 注流程 */
             }
         }
     }

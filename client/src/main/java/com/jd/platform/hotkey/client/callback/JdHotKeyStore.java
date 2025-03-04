@@ -36,7 +36,7 @@ public class JdHotKeyStore {
             }
             boolean isHot = isHot(key);
             if (!isHot) {
-                HotKeyPusher.push(key, null);
+                HotKeyPusher.push(key, null);/* 不是热key就推送计算 */
             } else {
                 ValueModel valueModel = getValueSimple(key);
                 //判断是否过期时间小于1秒，小于1秒的话也发送

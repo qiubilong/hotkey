@@ -226,14 +226,14 @@ public class EtcdStarter {
 
     }
 
-    private void fetchRule() {
+    private void fetchRule() { /* 项目启动，从配置中心拉取一次配置规则 */
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         //开启拉取etcd的worker信息，如果拉取失败，则定时继续拉取
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             JdLogger.info(getClass(), "trying to connect to etcd and fetch rule info");
             boolean success = fetchRuleFromEtcd();
             if (success) {
-                //拉取已存在的热key
+                //拉取已存在的热key(手工加)
                 fetchExistHotKey();
 
                 scheduledExecutorService.shutdown();
@@ -272,7 +272,7 @@ public class EtcdStarter {
     /**
      * 异步监听rule规则变化
      */
-    private void startWatchRule() {
+    private void startWatchRule() { /* 监听etcd，规则变化时重新拉取规则配置 */
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.submit(() -> {
             JdLogger.info(getClass(), "--- begin watch rule change ----");

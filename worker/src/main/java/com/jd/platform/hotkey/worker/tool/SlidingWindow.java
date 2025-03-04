@@ -16,11 +16,11 @@ public class SlidingWindow {
     /**
      * 循环队列，就是装多个窗口用，该数量是windowSize的2倍
      */
-    private AtomicLong[] timeSlices;
+    private AtomicLong[] timeSlices;/* 2倍窗口大小 */
     /**
      * 队列的总长度
      */
-    private int timeSliceSize;
+    private int timeSliceSize;    /* 2倍窗口大小windowSize */
     /**
      * 每个时间片的时长，以毫秒为单位
      */
@@ -83,7 +83,7 @@ public class SlidingWindow {
         //要求5秒内探测出来的，
         if (duration <= 5) {
             this.windowSize = 5;
-            this.timeMillisPerSlice = duration * 200;
+            this.timeMillisPerSlice = duration * 200; /*   等价 duration*1000 / windowSize   */
         } else {
             this.windowSize = 10;
             this.timeMillisPerSlice = duration * 100;
