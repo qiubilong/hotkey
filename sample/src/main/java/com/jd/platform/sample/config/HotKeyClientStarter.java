@@ -1,4 +1,4 @@
-package com.jd.platform.sample;
+package com.jd.platform.sample.config;
 
 import com.jd.platform.hotkey.client.ClientStarter;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +14,7 @@ import java.util.Map;
  * @version 1.0
  */
 @Component
-public class Starter {
+public class HotKeyClientStarter {
     @Value("${etcd.server}")
     private String etcd;
     @Value("${spring.application.name}")
@@ -23,7 +23,8 @@ public class Starter {
     @PostConstruct
     public void init() {
         ClientStarter.Builder builder = new ClientStarter.Builder();
-        ClientStarter starter = builder.setAppName(appName).setEtcdServer(etcd).build();
+        // 注意，setAppName很重要，它和dashboard中相关规则是关联的。
+        ClientStarter starter = builder.setAppName("myApp").setEtcdServer(etcd).build();
         starter.startPipeline();
     }
 

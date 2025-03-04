@@ -129,15 +129,13 @@ CREATE TABLE `hk_summary`  (
 /* 请确认以下SQL符合您的变更需求，务必确认无误后再提交执行 */
 
 CREATE TABLE `biz_access_token` (
-   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'token',
-   `flag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'flag',
-    `CREATED_BY` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '创建人',
+    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+    `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT 'token',
+    `flag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT 'flag',
+    `CREATED_BY` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '创建人',
     `CREATED_TIME` datetime NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-    `UPDATED_BY` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '修改人',
+    `UPDATED_BY` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '修改人',
     `UPDATED_TIME` datetime NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-     PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '咚咚token表' ROW_FORMAT = Compact;
-
-
 

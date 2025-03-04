@@ -27,7 +27,7 @@ public class JdHotKeyStore {
 
 
     /**
-     * 判断是否是key，如果不是，则发往netty
+     * 该方法会返回该key是否是热key，如果是返回true，如果不是返回false，并且会将key上报到探测集群进行数量计算。该方法通常用于判断只需要判断key是否热、不需要缓存value的场景，如刷子用户、接口访问频率等。
      */
     public static boolean isHotKey(String key) {
         try {
